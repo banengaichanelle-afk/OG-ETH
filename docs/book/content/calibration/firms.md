@@ -30,7 +30,7 @@ The production function is given as:
 
 Labour's share of output for Ethiopia comes from the [UN ILOSTAT database](https://rshiny.ilo.org/dataexplorer41/?lang=en&segment=indicator&id=SDG_1041_NOC_RT_A), SDG indicator 10.4.1 (series code `SDG_1041_NOC_RT_A`).  The most recent value is 0.38209, so total capital's share of output is $1 - 0.38209 = 0.61791$.  We split this between private capital $\gamma_m$ and public capital $\gamma_{g,m}$, with $\gamma_m + \gamma_{g,m} = 0.61791$.
 
-We set $\gamma_{g,m} = 0.10$, within the empirical range of 0.07 to 0.15 reported by {cite}`Buffie:2012`, {cite}`BomLigthart:2014`, and {cite}`Calderon:2015`.  Private capital share is then $\gamma_m = 0.51791$.
+We set $\gamma_{g,m} = 0.10$, the value used for low-income countries in {cite}`Buffie:2012`.  Private capital share is then $\gamma_m = 0.51791$.
 
 ### Public-investment efficiency
 
@@ -41,15 +41,15 @@ OG-Core's law of motion for public capital is
 K_{g,m,t+1} = (1 - \delta_g)\,K_{g,m,t} + (1 - \phi_g)\,I_{g,m,t}
 ```
 
-where $\delta_g$ is the depreciation rate of public capital (the `delta_g_annual` parameter) and $\phi_g$ (`infra_investment_leakage_rate`) is the fraction of public investment lost to leakage.  We set $\phi_g = 0.5$, matching the IMF DIG calibration of public-investment efficiency $e = 0.5$ for the average low-income country {cite}`Buffie:2012`.
+where $\delta_g$ is the depreciation rate of public capital (the `delta_g_annual` parameter) and $\phi_g$ (`infra_investment_leakage_rate`) is the fraction of public investment lost to leakage.  We set $\phi_g = 0.5$, meaning half of public investment is lost to inefficiency, matching the value used for the average low-income country in {cite}`Buffie:2012`.
 
-Public investment flow is set as a share of GDP, $I_{g,t} = \alpha_{I,t}\,Y_t$.  We calibrate `alpha_I` as a five-year linear path from the most recent actual to the IMF ECF program's medium-term target, then hold constant:
+Public investment flow is set as a share of GDP, $I_{g,t} = \alpha_{I,t}\,Y_t$.  We calibrate `alpha_I` as a five-year linear path from the most recent actual to the medium-term target in Ethiopia's 2024 IMF program, then hold constant:
 
 | $t$            | 0     | 1     | 2     | 3     | $\geq 4$ |
 |:---------------|:-----:|:-----:|:-----:|:-----:|:--------:|
 | $\alpha_{I,t}$ | 0.040 | 0.045 | 0.050 | 0.055 | 0.060    |
 
-The $t = 0$ value comes from the [NBE Annual Report 2023/24](https://nbe.gov.et/wp-content/uploads/2025/06/Annual-Report-2023-2024.pdf), Section 3.5: general government capital expenditure was 467,457.6 million Birr against total expenditure of 1,120,077.3 million Birr, where total expenditure was 9.5% of GDP, giving $\alpha_I = (467{,}457.6 / 1{,}120{,}077.3) \times 0.095 = 0.0396$.  The $t \geq 4$ value of 0.060 matches the [IMF ECF program medium-term fiscal framework](https://www.imf.org/en/Publications/CR/Issues/2024/07/29/The-Federal-Democratic-Republic-of-Ethiopia-Request-for-an-Arrangement-Under-the-Extended-552556) and Ethiopia's public investment rate in 2018/19 and 2019/20, prior to the recent fiscal consolidation.
+The $t = 0$ value comes from the [National Bank of Ethiopia Annual Report 2023/24](https://nbe.gov.et/wp-content/uploads/2025/06/Annual-Report-2023-2024.pdf), Section 3.5: general government capital expenditure was 467,457.6 million Birr against total expenditure of 1,120,077.3 million Birr, where total expenditure was 9.5% of GDP, giving $\alpha_I = (467{,}457.6 / 1{,}120{,}077.3) \times 0.095 = 0.0396$.  The $t \geq 4$ value of 0.060 matches the medium-term fiscal targets in [Ethiopia's 2024 IMF program](https://www.imf.org/en/Publications/CR/Issues/2024/07/29/The-Federal-Democratic-Republic-of-Ethiopia-Request-for-an-Arrangement-Under-the-Extended-552556) and the country's public investment rate in 2018/19 and 2019/20, prior to the recent fiscal consolidation.
 
 ### Initial public capital to GDP ratio
 
@@ -60,7 +60,7 @@ The parameter `initial_Kg_ratio` sets the ratio of public capital stock to GDP i
 \bar{K}_g / \bar{Y} = \frac{(1-\phi_g)\,\alpha_I}{\delta_g + g_y} = \frac{0.5 \times 0.06}{0.02 + 0.06} = 0.375
 ```
 
-Initializing near the model's steady-state $\bar{K}_g/\bar{Y}$ keeps the transition path well-behaved.  This value is also consistent with [IMF Investment and Capital Stock Dataset](https://data.imf.org/en/Data-Explorer?datasetUrn=IMF.FAD:ICSD(1.0.0)) (indicator `CAPSTCK_S13_Q_POGDP_PT`) readings for Ethiopia in the late 2000s, before the GTP infrastructure push raised the ratio to 0.667 by 2019.
+Initializing near the model's steady-state $\bar{K}_g/\bar{Y}$ keeps the transition path well-behaved.  This value is also consistent with [IMF Investment and Capital Stock Dataset](https://data.imf.org/en/Data-Explorer?datasetUrn=IMF.FAD:ICSD(1.0.0)) (indicator `CAPSTCK_S13_Q_POGDP_PT`) readings for Ethiopia in the late 2000s, before Ethiopia's infrastructure investment push of the 2010s raised the ratio to 0.667 by 2019.
 
 ### Total factor productivity
 

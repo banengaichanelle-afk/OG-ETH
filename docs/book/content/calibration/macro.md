@@ -17,7 +17,7 @@ We set $\zeta_D = 0.12$, the share of newly issued government debt held by forei
 
 ### Foreign holdings of excess capital
 
-We set $\zeta_K = 0.20$.  FDI inflows averaged 2 to 3 percent of GDP between 2018 and 2024 per the [UNCTAD World Investment Report](https://unctad.org/system/files/official-document/wir2024_en.pdf) against gross fixed capital formation of about 25 percent of GDP per [World Bank NE.GDI.FTOT.ZS](https://data.worldbank.org/indicator/NE.GDI.FTOT.ZS?locations=ET), implying foreign financing of new capital near 10 percent.  The [IMF Annual Report on Exchange Arrangements and Exchange Restrictions](https://www.imf.org/en/Publications/Annual-Report-on-Exchange-Arrangements-and-Exchange-Restrictions) documents binding NBE controls on foreign currency outflows and no resident access to international portfolio markets, with foreign banking access first opened under the 2024 financial-sector reform.
+We set $\zeta_K = 0.20$.  Foreign direct investment inflows averaged 2 to 3 percent of GDP between 2018 and 2024 per the [UNCTAD World Investment Report](https://unctad.org/system/files/official-document/wir2024_en.pdf) against gross fixed capital formation of about 25 percent of GDP per the [World Bank gross fixed capital formation series](https://data.worldbank.org/indicator/NE.GDI.FTOT.ZS?locations=ET), implying foreign financing of new capital near 10 percent.  The [IMF Annual Report on Exchange Arrangements and Exchange Restrictions](https://www.imf.org/en/Publications/Annual-Report-on-Exchange-Arrangements-and-Exchange-Restrictions) documents binding controls by Ethiopia's central bank on foreign currency outflows and no resident access to international portfolio markets, with foreign banking access first opened under the 2024 financial-sector reform.
 
 ## Government Debt, Spending and Transfers
 
@@ -41,7 +41,7 @@ where $\tau_d$ is the scale parameter and $\mu_d$ is the level shift parameter. 
 
 ### Aggregate transfers
 
-We set $\alpha_T = 0.05$, combining about 3.4 percent of GDP for non-Social-Security transfers from the [IMF Government Finance Statistics](https://data.imf.org/en/Data-Explorer?datasetUrn=IMF.STA:GFS_SOO(12.0.0)&INDICATOR=G271_T) (G27_T less G271_T) with 1.6 percent of GDP for social benefits and subsidies to households (fuel, fertilizer, food, medicine, expanded safety net) documented in [IMF Country Report 25/188](https://www.imf.org/en/publications/cr/issues/2025/07/15/the-federal-democratic-republic-of-ethiopia-2025-article-iv-consultation-third-review-under-568611).
+We set $\alpha_T = 0.05$, combining about 3.4 percent of GDP for non-pension social benefits reported in the [IMF Government Finance Statistics](https://data.imf.org/en/Data-Explorer?datasetUrn=IMF.STA:GFS_SOO(12.0.0)&INDICATOR=G271_T) with an additional 1.6 percent of GDP for social benefits and subsidies to households (fuel, fertilizer, food, medicine, expanded safety net) documented in [IMF Country Report 25/188](https://www.imf.org/en/publications/cr/issues/2025/07/15/the-federal-democratic-republic-of-ethiopia-2025-article-iv-consultation-third-review-under-568611).
 
 ### Government expenditures
 
