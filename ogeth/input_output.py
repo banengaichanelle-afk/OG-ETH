@@ -4,6 +4,11 @@ import os
 from ogeth.utils import is_connected
 from ogeth.constants import CONS_DICT, PROD_DICT
 
+
+def norm(x):
+    return str(x).strip().casefold()
+
+
 CUR_DIR = os.path.dirname(os.path.realpath(__file__))
 """
 Read in Social Accounting Matrix (SAM) file
@@ -19,10 +24,28 @@ SAM_path = os.path.join(
 def read_SAM():
     if is_connected():
         try:
-            SAM = pd.read_csv(SAM_path, index_col=1, thousands=",")
+            SAM = pd.read_csv(
+                SAM_path,
+                index_col=1,
+                thousands=",",
+            ).dropna(how="all")
+
             print("Successfully read SAM from Github repository.")
-            # replace NaN with 0
-            SAM.fillna(0, inplace=True)
+
+            # First column is descriptive text, not SAM values
+            label_col = SAM.columns[0]
+            value_cols = SAM.columns.drop(label_col)
+
+            # Convert only SAM value columns to numeric
+            SAM[value_cols] = (
+                SAM[value_cols]
+                .apply(lambda s: pd.to_numeric(s, errors="coerce"))
+                .fillna(0)
+            )
+
+            print(
+                f"{SAM.shape[0]} rows and {SAM.shape[1]} columns in the SAM."
+            )
         except Exception as e:
             print(f"Failed to read from the GitHub repository: {e}")
             SAM = None
