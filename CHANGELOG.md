@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.0.8] - 2026-05-18 23:00:00
+
+### Added
+* Reads the SAM file from `ogeth/data/` instead of fetching it from GitHub at runtime, so offline runs work
+* Adds a `pip-import-smoke` CI job that installs the package and imports it from a temp directory, catching packaging issues invisible from the source tree
+
+### Fixed
+* Fixes `alpha_c` to sum only the ten household columns of the SAM (instead of total - row, which included government, investment, and intermediate use), matching OG-IDN and OG-PHL
+
 ## [0.0.7] - 2026-05-12 00:50:00
 
 ### Fixed
