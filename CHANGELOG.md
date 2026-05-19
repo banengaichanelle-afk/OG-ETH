@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [0.0.7] - 2026-05-12 00:50:00
 
-### Fiex
+### Fixed
 
 - Fixed bug in `calibrate.py` where the `income.get_e_interp` function was not being called with the correct parameters. This was causing an error when running the `calibrate.py` script.
 
